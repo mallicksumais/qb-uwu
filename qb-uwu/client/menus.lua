@@ -80,7 +80,7 @@ Citizen.CreateThread(function()
 	    }, {
 		options = {
 		    {
-			event = "nh-context:uwuDrinkMenu",
+			event = "qb-uwu:uwuDrinkMenu",
 			icon = "fas fa-filter",
 			label = "Make Some Drinks",
 			job = "uwu",
@@ -98,7 +98,7 @@ Citizen.CreateThread(function()
         }, {
                 options = {
                     {
-                        event = "nh-context:ordermenu2",
+                        event = "qb-uwu:ordermenu2",
                         icon = "fas fa-laptop",
                         label = "Select From A Selection of Ingredients",
                         job = "uwu",
@@ -118,7 +118,7 @@ Citizen.CreateThread(function()
         }, {
                 options = {
                     {
-                        event = "nh-context:uwuMicrowave",
+                        event = "qb-uwu:uwuMicrowave",
                         icon = "fas fa-rocket",
                         label = "Microwave Food",
                         job = "uwu",
@@ -136,7 +136,7 @@ Citizen.CreateThread(function()
         }, {
                 options = {
                     {
-                        event = "nh-context:misoSoup",
+                        event = "qb-uwu:misoSoup",
                         icon = "fas fa-rocket",
                         label = "Make Miso Soup",
                         job = "uwu",
@@ -154,7 +154,7 @@ Citizen.CreateThread(function()
         }, {
                 options = {
                     {
-                        event = "nh-context:cupcake",
+                        event = "qb-uwu:cupcake",
                         icon = "fas fa-rocket",
                         label = "Make Some Cupcakes",
                         job = "uwu",
@@ -172,7 +172,7 @@ Citizen.CreateThread(function()
         }, {
                 options = {
                     {
-                        event = "nh-context:sandwich",
+                        event = "qb-uwu:sandwich",
                         icon = "fas fa-rocket",
                         label = "Make Some Food",
                         job = "uwu",
@@ -222,209 +222,340 @@ end)
 
 
 -- 
-RegisterNetEvent('nh-context:uwuMicrowave', function(data)
-    TriggerEvent('nh-context:sendMenu', {
+RegisterNetEvent('qb-uwu:uwuMicrowave', function(data)
+    -- TriggerEvent('nh-context:sendMenu', {
+    exports['qb-menu']:openMenu({
         {
-            id = 0,
+            -- id = 0,
             header = "| Cook Food in the Microwave |",
-            txt = "",
+            -- txt = "",
+            isMenuHeader = true, -- Set to true to make a nonclickable title
         },
         {
-            id = 1,
             header = "• Pancakes",
             txt = "Flour, Water, Eggs",
             params = {
-                event = "qb-uwu:pancake"
+                event = "qb-uwu:pancake",
+                args = {
+                    number = 1,
+                }
             }
         },
         {
-            id = 2,
-            header = "Nevermind (ESC)",
+            header = "close",
             txt = "",
+            params = {
+                event = "",
+                args = {
+                    number = 2,
+                }
+            }
         },
     })
 end)
+--         {
+--             id = 2,
+--             header = "Nevermind (ESC)",
+--             txt = "",
+--         },
+--     })
+-- end)
 
-RegisterNetEvent('nh-context:ordermenu2', function(data)
-    TriggerEvent('nh-context:sendMenu', {
+RegisterNetEvent('qb-uwu:ordermenu2', function(data)
+    -- TriggerEvent('nh-context:sendMenu', {
+    exports['qb-menu']:openMenu({
         {
-            id = 0,
+            -- id = 0,
             header = "| Fridge |",
-            txt = "",
+            -- txt = "",
+            isMenuHeader = true, -- Set to true to make a nonclickable title
         },
         {
-            id = 1,
+            -- id = 1,
             header = "• Browse Ingredients",
             txt = "Availability access.",
             params = {
-                event = "qb-uwu:shop"
+                event = "qb-uwu:shop",
+                args = {
+                    number = 0,
+                }
             }
         },
         {
-            id = 2,
+            -- id = 2,
             header = "• Open Fridge",
             txt = "See what you have in storage",
             params = {
-                event = "qb-uwu:Storage2"
+                event = "qb-uwu:Storage2",
+                args = {
+                    number = 1,
+                }
             }
         },
         {
-            id = 3,
-            header = "Close (ESC)",
+            header = "close",
             txt = "",
+            params = {
+                event = "",
+                args = {
+                    number = 2,
+                }
+            }
         },
+        -- {
+        --     id = 3,
+        --     header = "Close (ESC)",
+        --     txt = "",
+        -- },
     })
 end)
 
 -- Miso Soup
 
-RegisterNetEvent('nh-context:misoSoup', function(data)
-    TriggerEvent('nh-context:sendMenu', {
+RegisterNetEvent('qb-uwu:misoSoup', function(data)
+    -- TriggerEvent('nh-context:sendMenu', {
+    exports['qb-menu']:openMenu({
         {
-            id = 0,
+            -- id = 0,
             header = "| Miso Soup Station |",
-            txt = "",
+            -- txt = "",
+            isMenuHeader = true, -- Set to true to make a nonclickable title
         },
         {
-            id = 1,
+            -- id = 1,
             header = "• Make Miso Soup",
             txt = "Miso Paste, water, tofu",
             params = {
-                event = "qb-uwu:misoSoup"
+                event = "qb-uwu:misoSoup",
+                args = {
+                    number = 0,
+                }
             }
         },
         {
-            id = 2,
-            header = "Nevermind (ESC)",
+            header = "close",
             txt = "",
+            params = {
+                event = "",
+                args = {
+                    number = 1,
+                }
+            }
         },
+        -- {
+        --     id = 2,
+        --     header = "Nevermind (ESC)",
+        --     txt = "",
+        -- },
     })
 end)
 
-RegisterNetEvent('nh-context:cupcake', function(data)
-    TriggerEvent('nh-context:sendMenu', {
+RegisterNetEvent('qb-uwu:cupcake', function(data)
+    -- TriggerEvent('nh-context:sendMenu', {
+    exports['qb-menu']:openMenu({
         {
-            id = 0,
+            -- id = 0,
             header = "| Cupcake Station |",
-            txt = "",
+            -- txt = "",
+            isMenuHeader = true, -- Set to true to make a nonclickable title
         },
+        
         {
-            id = 1,
+            -- id = 1,
             header = "• Make some cupcakes",
             txt = "Water, eggs, flour",
             params = {
-                event = "qb-uwu:cupcake"
+                event = "qb-uwu:cupcake",
+                args = {
+                    number = 0,
+                }
             }
         },
         {
-            id = 2,
-            header = "Nevermind (ESC)",
+            header = "close",
             txt = "",
+            params = {
+                event = "",
+                args = {
+                    number = 2,
+                }
+            }
         },
+        -- {
+        --     id = 2,
+        --     header = "Nevermind (ESC)",
+        --     txt = "",
+        -- },
     })
 end)
 
-RegisterNetEvent('nh-context:sandwich', function(data)
-    TriggerEvent('nh-context:sendMenu', {
+RegisterNetEvent('qb-uwu:sandwich', function(data)
+    -- TriggerEvent('nh-context:sendMenu', {
+    exports['qb-menu']:openMenu({
         {
-            id = 0,
+            -- id = 0,
             header = "| Food Creation Station |",
-            txt = "",
+            isMenuHeader = true, -- Set to true to make a nonclickable title
+            -- txt = "",
         },
         {
-            id = 1,
+            -- id = 1,
             header = "• Make some Sushi",
             txt = "Eggs, Flour, Water",
             params = {
-                event = "qb-uwu:sushi"
+                event = "qb-uwu:sushi",
+                args = {
+                    number = 0,
+                }
             }
         },
         {
-            id = 2,
+            -- id = 2,
             header = "• Make a Vanilla Sandwich",
             txt = "Milk",
             params = {
-                event = "qb-uwu:vSandwich"
+                event = "qb-uwu:vSandwich",
+                args = {
+                    number = 1,
+                }
             }
         },
         {
-            id = 3,
+            -- id = 3,
             header = "• Make a Chocolate Sandwich",
             txt = "Milk",
             params = {
-                event = "qb-uwu:cSandwich"
+                event = "qb-uwu:cSandwich",
+                args = {
+                    number = 2,
+                }
             }
         },
         {
-            id = 4,
-            header = "Nevermind (ESC)",
+            header = "close",
             txt = "",
+            params = {
+                event = "",
+                args = {
+                    number = 3,
+                }
+            }
         },
+        -- {
+        --     id = 4,
+        --     header = "Nevermind (ESC)",
+        --     txt = "",
+        -- },
     })
 end)
 
 -- Bubble Tea 
 
-RegisterNetEvent('nh-context:uwuDrinkMenu', function(data)
-    TriggerEvent('nh-context:sendMenu', {
+RegisterNetEvent('qb-uwu:uwuDrinkMenu', function(data)
+    -- TriggerEvent('nh-context:sendMenu', {
+    exports['qb-menu']:openMenu({
         {
-            id = 0,
+            -- id = 0,
             header = "| Drink Menu |",
-            txt = "",
+            isMenuHeader = true, -- Set to true to make a nonclickable title
+            -- txt = "",
         },
         {
-            id = 1,
+            -- id = 1,
             header = "• Blueberry Bubble Tea",
             txt = "Blueberry flavored",
             params = {
-                event = "qb-uwu:bbtea"
+                event = "qb-uwu:bbtea",
+                args = {
+                    number = 0,
+                }
             }
         },
         {
-            id = 2,
+            -- id = 2,
             header = "• Rose Bubble Tea",
             txt = "Rose flavored",
             params = {
-                event = "qb-uwu:rosetea"
+                event = "qb-uwu:rosetea",
+                args = {
+                    number = 1,
+                }
             }
         },
         {
-            id = 3,
+            -- id = 3,
             header = "• Mint Bubble Tea",
             txt = "Mint flavored",
             params = {
-                event = "qb-uwu:minttea"
+                event = "qb-uwu:minttea",
+                args = {
+                    number = 2,
+                }
             }
         },
+           -- {
+           --     id = 4,
+           --     header = "Nevermind (ESC)",
+           --     txt = "",
+           -- },
         {
-            id = 4,
-            header = "Nevermind (ESC)",
+            header = "close",
             txt = "",
+            params = {
+                event = "",
+                args = {
+                    number = 2,
+                }
+            }
         },
     })
 end)
 
 -- Till Stuff --
-RegisterNetEvent("qb-uwu:bill")
-AddEventHandler("qb-uwu:bill", function()
-    local bill = exports["nh-keyboard"]:KeyboardInput({
-        header = "Create Receipt",
-        rows = {
+RegisterNetEvent("qb-uwu:bill", function()
+-- AddEventHandler("qb-uwu:bill", function()
+    -- local bill = exports["nh-keyboard"]:KeyboardInput({
+    --     header = "Create Receipt",
+    --     rows = {
+    --         {
+    --             id = 0,
+    --             txt = "Server ID"
+    --         },
+    --         {
+    --             id = 1,
+    --             txt = "Amount"
+    --         }
+    --     }
+    local bill = exports['qb-input']:ShowInput({
+        header = "Cash Register",
+        submitText = "Charge Customer",
+        inputs = {
             {
-                id = 0,
-                txt = "Server ID"
+                type = 'number',
+                name = 'id',
+                text = 'Magic Number',
+                isRequired = true
+
             },
             {
-                id = 1,
-                txt = "Amount"
+                type = 'number',
+                name = 'amount',
+                text = '$0.00',
+                isRequired = true
+
             }
         }
     })
-    if bill ~= nil then
-        if bill[1].input == nil or bill[2].input == nil then 
-            return 
-        end
-        TriggerServerEvent("qb-uwu:bill:player", bill[1].input, bill[2].input)
+    if bill then
+        if not bill.id or not bill.amount then return end
+        TriggerServerEvent("qb-uwu:bill:player", bill.id, bill.amount)
     end
 end)
+--     if bill ~= nil then
+--         if bill[1].input == nil or bill[2].input == nil then 
+--             return 
+--         end
+--         TriggerServerEvent("qb-uwu:bill:player", bill[1].input, bill[2].input)
+--     end
+-- end)
 
